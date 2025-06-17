@@ -1,0 +1,31 @@
+body{
+    align-content: center;
+    justify-items: center;
+    background-color: whitesmoke;
+}
+table{
+  border:1px solid black;
+  border-radius: 5px;
+  
+}
+button{
+    width: 40px;
+    height: 30px;
+    background-color: white;
+border-radius: 5px;
+border: 1px solid pink;
+margin: 5px;
+}
+#A2,#B2,#C2,#D2,#E2,#F2,#G2,#H2,#I2,#J2{
+    margin-right:40px
+
+}
+button:hover{
+    background-color: green;
+}
+.bus{
+    background-color: white;
+}
+#selectiontable td{
+    border:1px solid black;
+}
