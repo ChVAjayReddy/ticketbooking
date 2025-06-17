@@ -8,19 +8,20 @@ table{
   border-radius: 5px;
   
 }
-button{
+.bus button{
     width: 40px;
     height: 30px;
     background-color: white;
 border-radius: 5px;
 border: 1px solid pink;
 margin: 5px;
+background-color: pink;
 }
-#A2,#B2,#C2,#D2,#E2,#F2,#G2,#H2,#I2,#J2{
+#A2,#B2,#C2,#D2,#E2,#F2,#G2,#H2,#I2,#J2,#AA2{
     margin-right:40px
 
 }
-button:hover{
+.bus button:hover{
     background-color: green;
 }
 .bus{
@@ -28,4 +29,41 @@ button:hover{
 }
 #selectiontable td{
     border:1px solid black;
+}
+#selectiontable {
+    text-align: center;
+   
+}
+#selectiontable td{
+    border-radius: 5px;
+    text-align: center;
+}
+#confirm{
+  border: 2px black solid;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+input{
+    border-radius: 5px;
+}
+#final td{
+    border: 1px black solid;
+    text-align: center;
+}
+#final{
+    width: 250px;
+    border: 2px black solid;
+}
+#front button{
+    background-color: white;
+    border: 0px;
+
+}
+#front{
+    border-bottom: 0px;
+}
+img{
+        width: 30px;
 }
