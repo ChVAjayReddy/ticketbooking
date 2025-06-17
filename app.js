@@ -23,7 +23,7 @@ choose.forEach(btn => {
   statement.innerText=`You have selected ${totaltickets} tickets`;
   confirmticket.innerText=`Pay ₹.${totaltickets*500}`;
 addseats();}
-    else{document.getElementById(event.target.id).style.backgroundColor = "white";
+    else{document.getElementById(event.target.id).style.backgroundColor = "pink";
         document.getElementById(event.target.id).innerText ='';
 event.target.value=0;
 totaltickets--;
