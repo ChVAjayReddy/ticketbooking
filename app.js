@@ -138,7 +138,7 @@ confirmticket.addEventListener("click", function () {
     fdis.innerText = "Ticket Details";
     finaldis.append(fdis);
     let fname = document.createElement("p");
-    fname.innerText = `Dear ${passengerdata[0].name},\nThanks for choosing our travel agency.\n Passenger Details:`;
+    fname.innerText = `Dear ${passengerdata[0].name},\nYou have successfully booked your tickets.\n Passenger Details:`;
     finaldis.append(fname)
     let finaltable = document.createElement("table"); finaltable.id = "final"
     finaldis.append(finaltable)
@@ -174,7 +174,7 @@ confirmticket.addEventListener("click", function () {
     mob.innerText = `Contact Details \n Mobile : ${mobile} \n Email : ${email}`;
     finaldis.append(mob);
     let fstate = document.createElement("p");
-    fstate.innerText = "\n Wish You a Happy Journey.\n \n Ajay Tours and Travels.";
+    fstate.innerText = "Thanks for choosing our travel agency. \n \n Wish You a Happy Journey.\n \n Ajay Tours and Travels.";
     finaldis.append(fstate)
 
   }
