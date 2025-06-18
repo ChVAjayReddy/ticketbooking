@@ -138,7 +138,7 @@ confirmticket.addEventListener("click", function () {
     fdis.innerText = "Ticket Details";
     finaldis.append(fdis);
     let fname = document.createElement("p");
-    fname.innerText = `Dear ${passengerdata[0].name},\nYou have successfully booked your tickets.\n Passenger Details:`;
+    fname.innerText = `Dear ${passengerdata[0].name},\n\nYou have successfully booked your tickets.\n\n Passenger Details:`;
     finaldis.append(fname)
     let finaltable = document.createElement("table"); finaltable.id = "final"
     finaldis.append(finaltable)
