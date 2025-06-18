@@ -1,10 +1,28 @@
 let choose=document.querySelectorAll(".bus button");
 let totaltickets=0;
 let clickans;
+let seatnum=["A1","A2","A3","A4","B1","B2","B3","B4","C1","C2","C3","C4","D1","D2","D3","D4","E1","E2","E3","E4","F1","F2","F3","F4","G1","G2","G3","G4","H1","H2","H3","H4","I1","I2","I3","I4","J1","J2","J3","J4"];
 let price;let finalgender;let mobile;let email;
 let confirmticket=document.getElementById("confirm");
 let seatnumbers=[];let passengerdata=[];
 let statement=document.getElementById("ticketsno");
+let y; let ticketrandomnum=Math.floor(Math.random()*9);
+
+console.log(choose)
+for(y=1;y<=ticketrandomnum;y++){
+  let blockticket=Math.floor(Math.random()*40);
+ let seatblock=seatnum[blockticket];
+ console.log(seatblock)
+ document.getElementById(seatblock).style.backgroundColor="#B2BEB5";
+ document.getElementById(seatblock).disabled = true;
+
+ 
+
+ 
+ seatnum.splice(blockticket,1);
+
+}
+
 choose.forEach(btn => {
     btn.addEventListener("click", (event) => {
        clickans = event.target.id;
@@ -133,6 +151,8 @@ console.log(passengerdata);
        document.getElementById('contact').style.display="none";
        document.getElementById("lname").style.display="none";
        document.getElementById("front").style.display="none";
+       document.getElementById("icons").style.display="none";
+
        let finaldis=document.getElementById("final");
        let fdis=document.createElement("h2");
        fdis.innerText="Ticket Details";
