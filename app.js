@@ -1,7 +1,9 @@
 let choose = document.querySelectorAll(".bus button");
-let totaltickets = 0;
-let clickans;
-let seatnum = ["A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4", "C1", "C2", "C3", "C4", "D1", "D2", "D3", "D4", "E1", "E2", "E3", "E4", "F1", "F2", "F3", "F4", "G1", "G2", "G3", "G4", "H1", "H2", "H3", "H4", "I1", "I2", "I3", "I4", "J1", "J2", "J3", "J4"];
+let totaltickets = 0;let r;let ws;
+let clickans;let womenseats=[];let womenreserved=[];
+let seatnum = ['A1','A2','A3','A4','B1','B2','B3','B4','C1','C2','C3','C4','D1','D2','D3','D4','E1','E2','E3','E4','F1','F2','F3','F4','G1','G2','G3','G4','H1','H2','H3','H4','I1','I2','I3','I4','J1','J2','J3','J4'];
+let seatnumw = ['A1','A2','A3','A4','B1','B2','B3','B4','C1','C2','C3','C4','D1','D2','D3','D4','E1','E2','E3','E4','F1','F2','F3','F4','G1','G2','G3','G4','H1','H2','H3','H4','I1','I2','I3','I4','J1','J2','J3','J4'];
+
 let price; let finalgender; let mobile; let email;
 let confirmticket = document.getElementById("confirm");
 let seatnumbers = []; let passengerdata = [];
@@ -9,13 +11,45 @@ let statement = document.getElementById("ticketsno");
 let y; let ticketrandomnum = Math.floor(Math.random() * 9);
 
 
+
 for (y = 1; y <= ticketrandomnum; y++) {
-  let blockticket = Math.floor(Math.random() * 40);
+  let blockticket = Math.floor(Math.random() * 38);
+
   let seatblock = seatnum[blockticket];
+
+  let women=(Math.floor(Math.random() * (1 - 0 + 1)) + 0);
+  if(women==1){let blockage=document.getElementById(seatblock);
+    blockage.style.backgroundColor = "yellow";
+womenseats.push(seatblock)
+
+         }    
+  else{
   document.getElementById(seatblock).style.backgroundColor = "#B2BEB5";
-  document.getElementById(seatblock).disabled = true;
-  seatnum.splice(blockticket, 1);
 }
+  document.getElementById(seatblock).disabled = true;
+  // seatnum.splice(blockticket, 1);
+}
+
+for(r=0;r<womenseats.length;r++){
+  let wf=womenseats[r];
+   let wff=seatnumw.indexOf(wf);   
+   if((wff%2)==0){
+    wff=wff+1;
+    let womenres=seatnumw[wff];
+    document.getElementById(womenres).style.background="red";
+    womenreserved.push(womenres)
+
+
+   }
+   else{wff=wff-1;
+    let womenres=seatnumw[wff];
+    document.getElementById(womenres).style.background="red";
+
+womenreserved.push(womenres)
+   }
+ 
+}
+
 
 choose.forEach(btn => {
   btn.addEventListener("click", (event) => {
@@ -27,6 +61,7 @@ choose.forEach(btn => {
         alert("you can't book more than 6 tickets");
         return;
       }
+     
       event.target.value = 1;
       document.getElementById(event.target.id).style.backgroundColor = "black";
       document.getElementById(event.target.id).style.color = "white";
@@ -37,10 +72,16 @@ choose.forEach(btn => {
       addseats();
     }
     else {
+      let addwomen1=womenreserved.indexOf(clickans);
+  
       document.getElementById(event.target.id).style.backgroundColor = "pink";
       document.getElementById(event.target.id).innerText = '';
       event.target.value = 0;
       totaltickets--;
+      if(addwomen1!= -1){document.getElementById(event.target.id).style.backgroundColor = "red";
+
+    
+  }
       statement.innerText = `You have selected ${totaltickets} tickets`;
       confirmticket.innerText = `Pay ₹.${totaltickets * 500}`;
       passengerremove();
@@ -57,7 +98,12 @@ function addseats() {
   let pnamer = document.createElement("td");
   let pnamers = document.createElement("input"); pnamers.type = "text"; pnamers.id = "namep";
   let pmale = document.createElement("td"); let pmales = document.createElement("input"); pmales.type = "radio"; pmales.value = "0"; pmales.name = k;
-  let pfemale = document.createElement("td"); let pfemales = document.createElement("input"); pfemales.type = "radio"; pfemales.value = "1"; pfemales.name = k;
+  let addwomen=womenreserved.indexOf(clickans);
+    let pfemale = document.createElement("td"); let pfemales = document.createElement("input"); pfemales.type = "radio"; pfemales.value = "1"; pfemales.name = k;
+    if(addwomen!= -1){
+    pmales.disabled=true;
+    pfemales.checked=true;
+  }
   let pseatnum = document.createElement("td"); pseatnum.id = "seat"; pseatnum.innerText = clickans;
   let passengerlist = document.getElementById("selectiontable");
   passengerlist.append(passenger);
@@ -119,7 +165,7 @@ confirmticket.addEventListener("click", function () {
       mobile = document.getElementById("fname").value;
       email = document.getElementById("lname").value;
     }
-    console.log(passengerdata);
+   
     let div = document.getElementById("buschart");
     if (div.style.display === "none") {
       div.style.display = "block"; // 
@@ -138,7 +184,7 @@ confirmticket.addEventListener("click", function () {
     fdis.innerText = "Ticket Details";
     finaldis.append(fdis);
     let fname = document.createElement("p");
-    fname.innerText = `Dear ${passengerdata[0].name},\n\nYou have successfully booked your tickets.\n\n Passenger Details:`;
+    fname.innerText = `Dear ${passengerdata[0].name},\n\nYou have successfully booked your tickets.\n \nPassenger Details:`;
     finaldis.append(fname)
     let finaltable = document.createElement("table"); finaltable.id = "final"
     finaldis.append(finaltable)
