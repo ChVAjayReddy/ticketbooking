@@ -100,7 +100,7 @@ function addseats() {
   let pmale = document.createElement("td"); let pmales = document.createElement("input"); pmales.type = "radio"; pmales.value = "0"; pmales.name = k;
   let addwomen=womenreserved.indexOf(clickans);
     let pfemale = document.createElement("td"); let pfemales = document.createElement("input"); pfemales.type = "radio"; pfemales.value = "1"; pfemales.name = k;
-    if(addwomen!= -1){
+    if(addwomen!= -1){  alert("Selected seat is resesrved for women!");
     pmales.disabled=true;
     pfemales.checked=true;
   }
